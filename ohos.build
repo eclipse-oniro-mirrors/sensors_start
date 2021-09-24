@@ -1,0 +1,16 @@
+{
+  "subsystem": "sensors",
+  "parts": {
+  "sensors_start": {
+  "variants": [
+        "phone",
+        "ivi",
+        "wearable",
+        "intellitv"
+      ],
+      "module_list": [
+        "//base/sensors/start/etc/init:hsensors.rc"
+      ]
+    }
+  }
+}
