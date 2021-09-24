@@ -2,11 +2,7 @@
 
 -   [简介](#section11660541593)
 -   [目录](#section44981327519)
--   [约束](#section98068674513)
 -   [使用](#section1581412211528)
-    -   [接口说明](#section15684191115524)
-    -   [使用说明](#section1543714111810)
-
 -   [相关仓](#section96071132185310)
 
 ## 简介<a name="section11660541593"></a>
@@ -21,6 +17,9 @@ sensor导入模块的示例代码如下：
 ├── etc
     └── init                # 放置服务启动文件
 ```
+
+## 使用<a name="section1581412211528"></a>
+该仓需要配合[sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)仓或者[sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice)仓使用，不能单独存在。
 
 ## 相关仓<a name="section96071132185310"></a>
 
