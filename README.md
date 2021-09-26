@@ -16,13 +16,38 @@ The sample code for importing the start module is as follows:
 ```
 /base/sensors/start
 ├── etc
-    └── init                # Place the service startup file
+    └── init                # Place the startup file for the hsensor process
 ```
 
 ## Usage<a name="section1581412211528"></a>
-The warehouse places the start file of the hsensor process, which pulls up the small device services such as sensor and vibrator. Start-up profiles for sensors and small device services such as vibrator, etc. are in [sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)  and [sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice) parts compartments, respectively, so the silos cannot exist alone and need to be used with [sensors\_sensor](https://gitee.com/openharmony/sensors_sensor) or [sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice). Otherwise, the hsensor process will not pull up any services.
-
-### Available APIs<a name="section15684191115524"></a>
+The repository places the startup file of the hsensors process to start sensor and small device services such as vibrator. Sensor and small device services such as vibrator share the hsensors process.</br>
+Service code for sensor and small device services such as vibrator is [sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)  and [sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice) part compartments, respectively, and can be compiled independently and may exist at the same time. In order to ensure that the hsensors process starts and only starts once, the startup file of the hsensors process is placed in the sensors_start repository at that time.</br>
+Service startup profiles for sensor and small device services such as vibrator are in the sa_profile directory of [sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)  and [sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice) part, respectively.The resulting system/profile/hsensors.xml file is compiled, as follows.Of these, 3601 and 3602 serve the sensor and vibrator.If only the [sensors\_sensor](https://gitee.com/openharmony/sensors_sensor) code is compiled, the hsensors.xml file contains only the configuration items for the 3601 service
+```
+<?xml version="1.0" encoding="utf-8"?>
+<info>
+    <process>hsensors</process>
+    <loadlibs>
+        <libpath>libmiscdevice_service.z.so</libpath>
+        <libpath>libsensor_service.z.so</libpath>
+    </loadlibs>
+    <systemability>
+        <name>3602</name>
+        <libpath>libmiscdevice_service.z.so</libpath>
+        <run-on-create>true</run-on-create>
+        <distributed>false</distributed>
+        <dump-level>1</dump-level>
+    </systemability>
+    <systemability>
+        <name>3601</name>
+        <libpath>libsensor_service.z.so</libpath>
+        <run-on-create>true</run-on-create>
+        <distributed>false</distributed>
+        <dump-level>1</dump-level>
+    </systemability>
+</info>
+```
+The hsensors.xml file starts the service when the hsensors process is started. Therefore sensors_start repository cannot be alone and needs to be used with [sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)  or [sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice) part.
 
 ## Repositories Involved<a name="section96071132185310"></a>
 
