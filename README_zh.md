@@ -19,7 +19,7 @@ sensor导入模块的示例代码如下：
 ```
 
 ## 使用<a name="section1581412211528"></a>
-该仓需要配合[sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)仓或者[sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice)仓使用，不能单独存在。
+该仓放置了hsensor进程的启动文件，hsensor进程会拉起sensor、马达等小器件服务。sensor、马达等小器件服务的启动配置文件分别在[sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)和[sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice)部件仓的sa_profile目录下，因此该仓不能单独存在，需要搭配[sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)或者[sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice)部件仓使用。否则，hsensor进程将不会拉起任何服务。
 
 ## 相关仓<a name="section96071132185310"></a>
 

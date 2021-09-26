@@ -20,7 +20,7 @@ The sample code for importing the start module is as follows:
 ```
 
 ## Usage<a name="section1581412211528"></a>
-The position needs to be used in conjunction with [sensors\_sensor](https://gitee.com/openharmony/sensors_sensor) or sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice) positions and cannot exist alone.
+The warehouse places the start file of the hsensor process, which pulls up the small device services such as sensor and vibrator. Start-up profiles for sensors and small device services such as vibrator, etc. are in [sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)  and [sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice) parts compartments, respectively, so the silos cannot exist alone and need to be used with [sensors\_sensor](https://gitee.com/openharmony/sensors_sensor) or [sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice). Otherwise, the hsensor process will not pull up any services.
 
 ### Available APIs<a name="section15684191115524"></a>
 
