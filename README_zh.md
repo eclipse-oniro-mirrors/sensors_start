@@ -19,9 +19,9 @@ sensor导入模块的示例代码如下：
 ```
 
 ## 使用<a name="section1581412211528"></a>
-该仓放置了hsensors进程的启动文件，用来启动sensor和马达等小器件服务。sensor和马达等小器件服务共享hsensors进程。</br>
-sensor和马达等小器件的服务代码分别在[sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)和[sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice)部件仓，可独立编译，且可能同时存在。为了保证hsensors进程启动且仅启动一次，因此将hsensors进程的的启动文件当时放置在sensors_start仓中。</br>
-sensor和马达等小器件的服务启动配置文件分别在[sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)和[sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice)部件仓的sa_profile目录下，会编译生成system/profile/hsensors.xml文件，内容如下。其中3601和3602分别为sensor和马达服务。若仅编译[sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)仓代码，hsensors.xml文件中则仅包含3601服务的配置项。</br>
+该仓放置了hsensors进程的启动文件，用来启动sensor和马达等小器件服务。sensor和马达等小器件服务共享hsensors进程。<br>
+sensor和马达等小器件的服务代码分别在[sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)和[sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice)部件仓，可独立编译，且可能同时存在。为了保证hsensors进程启动且仅启动一次，因此将hsensors进程的的启动文件当时放置在sensors_start仓中。<br>
+sensor和马达等小器件的服务启动配置文件分别在[sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)和[sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice)部件仓的sa_profile目录下，会编译生成system/profile/hsensors.xml文件，内容如下。其中3601和3602分别为sensor和马达服务。若仅编译[sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)仓代码，hsensors.xml文件中则仅包含3601服务的配置项。<br>
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <info>

@@ -20,8 +20,8 @@ The sample code for importing the start module is as follows:
 ```
 
 ## Usage<a name="section1581412211528"></a>
-The repository places the startup file of the hsensors process to start sensor and small device services such as vibrator. Sensor and small device services such as vibrator share the hsensors process.</br>
-Service code for sensor and small device services such as vibrator is [sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)  and [sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice) part compartments, respectively, and can be compiled independently and may exist at the same time. In order to ensure that the hsensors process starts and only starts once, the startup file of the hsensors process is placed in the sensors_start repository at that time.</br>
+The repository places the startup file of the hsensors process to start sensor and small device services such as vibrator. Sensor and small device services such as vibrator share the hsensors process.<br>
+Service code for sensor and small device services such as vibrator is [sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)  and [sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice) part compartments, respectively, and can be compiled independently and may exist at the same time. In order to ensure that the hsensors process starts and only starts once, the startup file of the hsensors process is placed in the sensors_start repository at that time.<br>
 Service startup profiles for sensor and small device services such as vibrator are in the sa_profile directory of [sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)  and [sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice) part, respectively.The resulting system/profile/hsensors.xml file is compiled, as follows.Of these, 3601 and 3602 serve the sensor and vibrator.If only the [sensors\_sensor](https://gitee.com/openharmony/sensors_sensor) code is compiled, the hsensors.xml file contains only the configuration items for the 3601 service
 ```
 <?xml version="1.0" encoding="utf-8"?>
