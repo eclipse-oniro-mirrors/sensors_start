@@ -6,7 +6,7 @@
 -   [相关仓](#section96071132185310)
 
 ## 简介<a name="section11660541593"></a>
-启动sensor、马达等小器件服务。
+sensors_start仓归属于泛sensor服务子系统，该仓主要提供了泛sensor服务进程（即hsensors）的启动文件。<br>
 
 ## 目录<a name="section44981327519"></a>
 
@@ -19,9 +19,8 @@ sensor导入模块的示例代码如下：
 ```
 
 ## 使用<a name="section1581412211528"></a>
-该仓放置了hsensors进程的启动文件，用来启动sensor和马达等小器件服务。sensor和马达等小器件服务共享hsensors进程。<br>
-sensor和马达等小器件的服务代码分别在[sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)和[sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice)部件仓，产品在选择部件时根据需要可能选择其中一个部件或者两个部件都选择。这就需要将hsensors进程的启动文件放在单独的启动部件仓，由这两个部件共享，这样任何一个部件仓搭配启动部件就可以启动hsensors进程，防止重复启动进程。<br>
-sensor和马达等小器件的服务启动配置文件分别在[sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)和[sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice)部件仓的sa_profile目录下，会编译生成system/profile/hsensors.xml文件。其中3601和3602分别为sensor和马达服务。若仅编译[sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)仓代码，hsensors.xml文件中则仅包含3601服务的配置项。启动hsensors进程时会加载hsensors.xml文件启动服务。<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;泛sensor服务子系统提供了sensor服务和miscdevice服务，分别在[sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)和[sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice)部件仓。产品根据需要可能选择其中一个服务或者两个服务都选择。因此将hsensors进程的启动文件单独放置在sensors_start仓，由这两个服务共享，这样任何一个服务搭配启动部件就可以启动hsensors进程，防止重复启动进程。<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sensor服务和miscdevice服务的启动配置文件分别在[sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)和[sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice)仓中sa_profile目录下，编译后生成hsensors.xml文件，内容如下所示：
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <info>
@@ -46,6 +45,7 @@ sensor和马达等小器件的服务启动配置文件分别在[sensors\_sensor]
     </systemability>
 </info>
 ```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其中3601和3602分别为sensor服务和马达服务。若仅编译[sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)仓代码，hsensors.xml文件中则仅包含3601服务的配置项。启动hsensors进程时会加载hsensors.xml文件启动对应的服务。
 
 ## 相关仓<a name="section96071132185310"></a>
 
