@@ -15,7 +15,7 @@ sensor导入模块的示例代码如下：
 ```
 /base/sensors/start
 ├── etc
-    └── init                # 放置服务启动文件
+    └── init                # 放置hsensor进程的启动文件
 ```
 
 ## 使用<a name="section1581412211528"></a>
