@@ -1,39 +1,59 @@
-# sensors_start
+# Sensor<a name="EN-US_TOPIC_0000001148682248"></a>
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+-   [Introduction](#section11660541593)
+-   [Directory Structure](#section44981327519)
+-   [Usage](#section1581412211528)
+-   [Repositories Involved](#section96071132185310)
 
-#### 软件架构
-软件架构说明
+## Introduction<a name="section11660541593"></a>
 
+Start sensor, vibrator and other small device services.
 
-#### 安装教程
+## Directory Structure<a name="section44981327519"></a>
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+The sample code for importing the start module is as follows:
 
-#### 使用说明
+```
+/base/sensors/start
+├── etc
+    └── init                # Place the startup file for the hsensor process
+```
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+## Usage<a name="section1581412211528"></a>
+The repository places the startup file of the hsensors process to start sensor and small device services such as vibrator. Sensor and small device services such as vibrator share the hsensors process.<br>
+Service code for sensor and small device services such as vibrator is [sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)  and [sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice) part compartments, respectively. when selecting a part, the product may select either or both parts as needed. This requires that the startup file of the hsensors process be placed in a separate start-up part compartment, shared by the two parts, so that any part silo with the starter part can start the hsensors process and prevent duplicate start-up of the process.<br>
+Service startup profiles for sensor and small device services such as vibrator are in the sa_profile directory of [sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)  and [sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice) part, respectively.The resulting system/profile/hsensors.xml file is compiled, as follows.Of these, 3601 and 3602 serve the sensor and vibrator.If only the [sensors\_sensor](https://gitee.com/openharmony/sensors_sensor) code is compiled, the hsensors.xml file contains only the configuration items for the 3601 service. The hsensors.xml file starts the service when the hsensors process is started.    
+```
+<?xml version="1.0" encoding="utf-8"?>
+<info>
+    <process>hsensors</process>
+    <loadlibs>
+        <libpath>libmiscdevice_service.z.so</libpath>
+        <libpath>libsensor_service.z.so</libpath>
+    </loadlibs>
+    <systemability>
+        <name>3602</name>
+        <libpath>libmiscdevice_service.z.so</libpath>
+        <run-on-create>true</run-on-create>
+        <distributed>false</distributed>
+        <dump-level>1</dump-level>
+    </systemability>
+    <systemability>
+        <name>3601</name>
+        <libpath>libsensor_service.z.so</libpath>
+        <run-on-create>true</run-on-create>
+        <distributed>false</distributed>
+        <dump-level>1</dump-level>
+    </systemability>
+</info>
+```
 
-#### 参与贡献
+## Repositories Involved<a name="section96071132185310"></a>
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+Pan-sensor subsystem
 
+[sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)
 
-#### 特技
+[sensors\_miscdevice](https://gitee.com/openharmony/sensors_miscdevice)
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+**sensors\_start**

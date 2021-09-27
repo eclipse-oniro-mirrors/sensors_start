@@ -1,0 +1,19 @@
+# Copyright (c) Huawei Technologies Co., Ltd. 2019-2019. All rights reserved.
+# Description: add hsensors boot rc file compile script
+# Author: ningyanlei
+# Create: 2019-08-30
+
+import("//build/ohos.gni")
+
+################################################################################
+
+ohos_prebuilt_etc("hsensors.rc") {
+  if (use_musl) {
+    source = "hsensors.cfg"
+  } else {
+    source = "hsensors.rc"
+  }
+  relative_install_dir = "init"
+  subsystem_name = "sensors"
+  part_name = "sensors_start"
+}
