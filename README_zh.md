@@ -15,7 +15,7 @@ sensors_start仓的目录结构如下：
 ```
 /base/sensors/start
 ├── etc
-    └── init                # 放置hsensor进程的启动文件
+    └── init                # 放置hsensors进程的启动文件
 ```
 
 ## 使用<a name="section1581412211528"></a>
