@@ -49,7 +49,7 @@ sensor服务和miscdevice服务的启动配置文件分别在[sensors\_sensor](h
 
 ## 相关仓<a name="section96071132185310"></a>
 
-泛Sensor服务子系统
+[泛sensor服务子系统](https://gitee.com/openharmony/docs/blob/master/zh-cn/readme/%E6%B3%9BSensor%E5%AD%90%E7%B3%BB%E7%BB%9F.md)
 
 [sensors\_sensor](https://gitee.com/openharmony/sensors_sensor)
 
