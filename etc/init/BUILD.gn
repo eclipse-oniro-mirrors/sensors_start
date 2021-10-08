@@ -15,5 +15,5 @@ ohos_prebuilt_etc("hsensors.rc") {
   }
   relative_install_dir = "init"
   subsystem_name = "sensors"
-  part_name = "sensors_start"
+  part_name = "start"
 }
