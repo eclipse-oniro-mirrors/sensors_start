@@ -1,8 +1,0 @@
-on post-fs-data
-    start hsensors
-
-service hsensors /system/bin/sa_main /system/profile/hsensors.xml
-    class hsensors
-    user system
-    group system shell
-    seclabel u:r:foundation:s0

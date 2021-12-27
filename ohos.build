@@ -9,7 +9,7 @@
         "intellitv"
       ],
       "module_list": [
-        "//base/sensors/start/etc/init:hsensors.rc"
+        "//base/sensors/start/etc/init:sensors.rc"
       ]
     }
   }
