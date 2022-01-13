@@ -1,5 +1,5 @@
 {
-  "name": "@openharmony/start",
+  "name": "@ohos/start",
   "description": "Start sensor, vibrator and other small device services",
   "version": "3.1",
   "license": "Apache License 2.0",
