@@ -1,0 +1,20 @@
+{
+  "name": "@ohos/start",
+  "description": "Start sensor, vibrator and other small device services",
+  "version": "3.1",
+  "license": "Apache License 2.0",
+  "component": {
+    "name": "start",
+    "subsystem": "sensors",
+    "syscap": [],
+    "features": [],
+    "adapted_system_type": [ "standard" ],
+    "rom": "1KB",
+    "ram": "~4KB",
+    "build": {
+      "sub_component": [
+        "//base/sensors/start/etc/init:sensors.rc"
+      ]
+    }
+  }
+}
