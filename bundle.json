@@ -12,8 +12,12 @@
     "syscap": [],
     "features": [],
     "adapted_system_type": [ "standard" ],
-    "rom": "1KB",
-    "ram": "~4KB",
+    "rom": "",
+    "ram": "",
+    "deps": {
+      "components": [],
+      "third_party": []
+    },
     "build": {
       "sub_component": [
         "//base/sensors/start/etc/init:sensors.rc"
