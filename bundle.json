@@ -3,6 +3,9 @@
   "description": "Start sensor, vibrator and other small device services",
   "version": "3.1",
   "license": "Apache License 2.0",
+  "segment": {
+    "destPath": "base/sensors/start"
+  },
   "component": {
     "name": "start",
     "subsystem": "sensors",
