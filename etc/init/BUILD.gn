@@ -16,11 +16,7 @@ import("//build/ohos.gni")
 ################################################################################
 
 ohos_prebuilt_etc("sensors.rc") {
-  if (use_musl) {
-    source = "sensors.cfg"
-  } else {
-    source = "sensors.rc"
-  }
+  source = "sensors.cfg"
   relative_install_dir = "init"
   subsystem_name = "sensors"
   part_name = "start"
