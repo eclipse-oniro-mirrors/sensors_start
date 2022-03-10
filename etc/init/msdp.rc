@@ -1,4 +1,4 @@
-# Copyright (c) 2021 Huawei Device Co., Ltd.
+# Copyright (C) 2021 Huawei Device Co., Ltd.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -11,20 +11,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import("//build/ohos.gni")
+service msdp_sa /system/bin/sa_main /system/profile/msdp.xml
+    class msdp
+    user msdp
+    group system shell
+    seclabel u:r:msdp:s0
 
-################################################################################
-
-ohos_prebuilt_etc("sensors.rc") {
-  source = "sensors.cfg"
-  relative_install_dir = "init"
-  subsystem_name = "sensors"
-  part_name = "start"
-}
-
-ohos_prebuilt_etc("msdp.rc") {
-  source = "msdp.cfg"
-  relative_install_dir = "init"
-  subsystem_name = "msdp"
-  part_name = "start"
-}
+on boot
+    exec /system/bin/sleep 4
+    start msdp_sa
