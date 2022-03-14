@@ -20,7 +20,8 @@
     },
     "build": {
       "sub_component": [
-        "//base/sensors/start/etc/init:sensors.rc"
+        "//base/sensors/start/etc/init:sensors.rc",
+        "//base/sensors/start/etc/init:msdp.rc"
       ]
     }
   }
