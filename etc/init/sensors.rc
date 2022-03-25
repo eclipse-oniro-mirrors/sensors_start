@@ -1,8 +1,0 @@
-on post-fs-data
-    start sensors
-
-service sensors /system/bin/sa_main /system/profile/sensors.xml
-    class sensors
-    user system
-    group system shell
-    seclabel u:r:foundation:s0
