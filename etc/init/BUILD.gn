@@ -27,7 +27,7 @@ ohos_prebuilt_etc("sensors.rc") {
 }
 
 ohos_prebuilt_etc("msdp.rc") {
-    if (use_musl) {
+  if (use_musl) {
     source = "msdp_musl.cfg"
   } else {
     source = "msdp.cfg"
