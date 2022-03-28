@@ -27,7 +27,11 @@ ohos_prebuilt_etc("sensors.rc") {
 }
 
 ohos_prebuilt_etc("msdp.rc") {
-  source = "msdp.cfg"
+    if (use_musl) {
+    source = "msdp_musl.cfg"
+  } else {
+    source = "msdp.cfg"
+  }
   relative_install_dir = "init"
   subsystem_name = "msdp"
   part_name = "start"
